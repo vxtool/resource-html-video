@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="no-js" lang="pt-BR" xml:lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script type="text/javascript">
+      // to identify if javascript is active
+      var tagHtml = document.getElementsByTagName("html")[0];
+          tagHtml.className = tagHtml.className.replace('no-js', 'js');
+    </script>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <style type="text/css" media="screen">
+      * { margin: 0; padding: 0; }
+      *,:after,:before,html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+      img { max-width: 100%; }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .videoWrap {
+        position: relative;
+        min-height: 300px;
+      }
+
+      .video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        z-index: 999;
+      }
+
+      video {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .playButton,
+      .pauseButton {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+      }
+
+      .video-description {
+        background: #fff;
+        display: table;
+        padding: 5px 10px;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        width: 100%;
+      }
+
+      .video-description-text {
+        color: #666;
+        display: table-cell;
+        font-size: 12px;
+        line-height: 1.2;
+        padding-right: 10px;
+        vertical-align: middle;
+      }
+
+      .video-description-link {
+        background: #ff9c5a;
+        color: #fff;
+        display: table-cell;
+        font-size: 14px;
+        padding: 10px 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        vertical-align: middle;
+      }
+
+      .video-description-link:hover { background: #d86517; }
+
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div class="videoWrap">
+            <div class="video">
+              <svg class="playButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="#FFF" d="M50 100C22.388 100 0 77.612 0 50 0 22.385 22.388 0 50 0s50 22.385 50 50c0 27.612-22.388 50-50 50zm0-87.5c-20.71 0-37.5 16.79-37.5 37.5S29.29 87.5 50 87.5 87.5 70.71 87.5 50 70.71 12.5 50 12.5zM37.5 31.25L68.75 50 37.5 68.75v-37.5z"/></svg>
+              <video>
+                <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+                <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
+                <img alt="" src="">
+              </video>
+              <div class="video-description">
+                <span class="video-description-text">Texto de exemplo que pode ficar aqui para não quebrar o texto. Texto de exemplo que pode ficar aqui para não quebrar o texto.</span>
+                <a class="video-description-link" href="###">Comprar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pure-u-1-3">
+          <img src="http://placehold.it/300x300" alt="">
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var video = document.querySelector("video");
+      var playButton = document.querySelector(".playButton");
+      var pauseButton = document.querySelector(".pauseButton");
+
+      video.oncontextmenu = function(){ return false; };
+
+      playButton.addEventListener("click", function(){
+        video.play();
+      });
+
+      video.addEventListener("click", function(){
+        video.pause();
+      });
+
+      video.addEventListener("play", function(){
+        playButton.classList.add("hidden");
+      });
+
+      video.addEventListener("pause", function(){
+        playButton.classList.remove("hidden");
+      });
+
+      video.addEventListener("ended", function(){
+        playButton.classList.remove("hidden");
+      });
+
+    </script>
+  </body>
+</html>
